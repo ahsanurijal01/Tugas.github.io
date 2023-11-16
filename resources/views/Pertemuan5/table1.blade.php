@@ -15,7 +15,7 @@
       
           <h4>Tabel Mahasiswa</h4> 
 
-          <table class="table table-sm">
+          <table class="table table-danger table-sm table-hover table-striped table-bordered">
             <tr>
               <th>NPM</th>
               <th>Nama</th>

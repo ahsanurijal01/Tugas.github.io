@@ -39,53 +39,46 @@
 
       <h1>Halaman Mahasiswa</h1>
       
-      <div class="row">
-        <div class="col-sm-6">
           <h4>Tabel Mahasiswa</h4>
 
-          <table class="table table-dark table-sm table-hover table-bordered">
+          <table class="table table-danger table-sm table-hover table-bordered">
             <thead>
               <tr>
-                <th>npm</th>
-                <th>nama</th>
-                <th>Jk</th>
-                <th>Alamat</th>
+                <th>NPM</th>
+                <th>Nama Mahasiswa</th>
+                <th>Jenis Kelamin</th>
                 <th>Tgl lahir</th>
+                <th>Alamat</th>
             </tr>
             </thead>
             <tbody>
               <tr>
                   <td>123</td>
-                  <td>johor</td>
+                  <td>Fulan</td>
                   <td>LK</td>
-                  <td>tembung</td>
                   <td>02-05-2000</td>
+                  <td>tembung</td>
               </tr> 
-            </tbody>
-            <tbody>
+            
               <tr>
                   <td>124</td>
-                  <td>johor</td>
+                  <td>Fulon</td>
                   <td>LK</td>
-                  <td>tembung</td>
                   <td>02-05-2000</td>
+                  <td>tembung</td>
               </tr> 
-            </tbody>
-            <tbody>
+          
               <tr>
                   <td>125</td>
-                  <td>johor</td>
+                  <td>Fani</td>
                   <td>LK</td>
-                  <td>tembung</td>
                   <td>02-05-2000</td>
+                  <td>tembung</td>
               </tr> 
             </tbody>
           </table>
         </div>
-        <div class="col-sm-6">
-          <h4>Form Mahasiswa</h4>
-          <p align="justify">T</p>
-        </div>
+        
           
        </div>
     </div>
