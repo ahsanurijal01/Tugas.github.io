@@ -38,50 +38,46 @@
     <div class="container">
 
       <h1>Halaman Mahasiswa</h1>
-      
+      <div class="row">
+        <div class="col-sm-6">
           <h4>Tabel Mahasiswa</h4>
-
-          <table class="table table-danger table-sm table-hover table-bordered">
+          
+          <table class="table table-danger table-sm table-hover table-bordered text-center">
             <thead>
               <tr>
                 <th>NPM</th>
                 <th>Nama Mahasiswa</th>
                 <th>Jenis Kelamin</th>
-                <th>Tgl lahir</th>
-                <th>Alamat</th>
+                <th colspan="2">TTL</th>
             </tr>
             </thead>
             <tbody>
+              <?php $nilai_awal = 0; ?>
+              @while ($nilai_awal < $jumlah)
+                  
               <tr>
-                  <td>123</td>
-                  <td>Fulan</td>
+                  <td>{{$npm[$nilai_awal]}}</td>
+                  <td>{{$nama[$nilai_awal]}}</td>
                   <td>LK</td>
                   <td>02-05-2000</td>
                   <td>tembung</td>
               </tr> 
-            
-              <tr>
-                  <td>124</td>
-                  <td>Fulon</td>
-                  <td>LK</td>
-                  <td>02-05-2000</td>
-                  <td>tembung</td>
-              </tr> 
-          
-              <tr>
-                  <td>125</td>
-                  <td>Fani</td>
-                  <td>LK</td>
-                  <td>02-05-2000</td>
-                  <td>tembung</td>
-              </tr> 
+              <?php $nilai_awal++ ?>
+              @endwhile
             </tbody>
           </table>
-        </div>
-        
-          
-       </div>
+        </div>                
+       <div class="col-sm-6">
+        <h4>Form Mahasiswa</h4>
+        <form action="" method="get">
+          <label for="">NPM</label>
+          <input type="number" class="form-control">
+          <label for="">Nama Mahasiswa</label>
+          <input type="text" name="" id="" class="form-control">
+        </form>
+      </div>
     </div>
+  </div>
 
      
    
