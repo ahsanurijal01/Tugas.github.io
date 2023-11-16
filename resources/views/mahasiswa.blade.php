@@ -70,10 +70,33 @@
        <div class="col-sm-6">
         <h4>Form Mahasiswa</h4>
         <form action="" method="get">
-          <label for="">NPM</label>
-          <input type="number" class="form-control">
-          <label for="">Nama Mahasiswa</label>
-          <input type="text" name="" id="" class="form-control">
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="">NPM</label>
+              <input type="number" name="npm" class="form-control" placeholder="input NPM">
+            </div>
+            <div class="col-sm-6">
+              <label for="">Nama Mahasiswa</label>
+              <input type="text" name="nama_mahasiswa" class="form-control" placeholder="input Nama Mahasiswa">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="">Tanggal Lahir</label>
+              <input type="date" name="tgl_lahir"  class="form-control">
+            </div>
+            <div class="col-sm-6">
+              <label for="">Prodi</label>
+              <select name="prodi" class="form-control">
+                <option value="1">Sistem Informasi</option>
+                <option value="2">Teknologi Informasi</option>
+                <option value="3">Data Sains</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group mt-2">
+            <button class="btn btn-primary" style="width: 100%" type="submit">Simpan</button>
+          </div>
         </form>
       </div>
     </div>
