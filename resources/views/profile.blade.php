@@ -22,6 +22,18 @@
               <li class="nav-item">
                 <a class="nav-link" href="/profile">Profile</a>
               </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown-menu
+                </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/tugas1">Tugas1</a></li>
+                <li><a class="dropdown-item" href="/tugas2">Tugas2</a></li>
+                <li><a class="dropdown-item" href="/table1">Table1</a></li>
+                <li><a class="dropdown-item" href="/table2">Table2</a></li>
+                <li><a class="dropdown-item" href="/array">Array</a></li>
+              </ul>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="/about" tabindex="-1" aria-disabled="true">About</a>
               </li>
