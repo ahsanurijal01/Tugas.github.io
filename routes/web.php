@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\mahasiswacontroller;
+use App\Models\mahasiswaModel;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('mahasiswa', [mahasiswacontroller::class, 'index']);
+Route::resource('mahasiswa', mahasiswacontroller::class);
 
 
 
