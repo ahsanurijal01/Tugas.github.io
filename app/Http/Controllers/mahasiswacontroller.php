@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\mahasiswa;
 use App\Models\mahasiswaModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class mahasiswacontroller extends Controller
+class mahasiswaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //halaman home
-        $mahasiswa = mahasiswaModel ::orderBy('id' , 'asc')->get();
-        return view('index') ->with('mahasiswa', $mahasiswa);
-        
+        //Halaman Home mahasiswa
+        $mahasiswa = mahasiswaModel::orderBy('npm', 'asc')->get();
+        $no = 1;
+        return view('index', compact('mahasiswa', 'no'));
     }
 
     /**
@@ -24,10 +25,8 @@ class mahasiswacontroller extends Controller
      */
     public function create()
     {
-        //Halaman Tambah Mahasiswa
-
+        //Halaman Tambah mahasiswa
         return view('create');
-
     }
 
     /**
@@ -35,45 +34,49 @@ class mahasiswacontroller extends Controller
      */
     public function store(Request $request)
     {
-        //Proses simpan mahasiswa
+        //Simpan tambah mahasiswa
+
         Session::flash('npm', $request->npm);
+        Session::flash('nama_mahasiswa', $request->nama_mahasiswa);
+        Session::flash('tgl_lahir', $request->tgl_lahir);
+        Session::flash('alamat', $request->alamat);
 
         $request->validate(
             [
-                'npm' => 'required',
+                'npm' => 'required|numeric|unique:mahasiswa,npm',
                 'nama_mahasiswa' => 'required',
                 'jk' => 'required',
                 'tgl_lahir' => 'required',
-                'alamat' => 'requred'
-
+                'alamat' => 'required'
             ],
             [
-                'npm.required' => 'NPM Tidak Boleh Kosong!',
-                'nama_mahasiswa.required' => 'Nama Tidak Boleh Kosong!',
-                'jk.required' => 'Jenis Kelamin Belum Dipilih!',
-                'alamat.required' => 'Alamat TIdat Boleh Kosong!'
+                'npm.required' => 'NPM tidak boleh kosong!',
+                'npm.numeric' => 'NPM harus diisi dalam bentuk angka',
+                'npm.unique' => 'NPM sudah ada sebelumnya',
+                'nama_mahasiswa.required' => 'Nama Mahasiswa tidak boleh kosong!',
+                'jk.required' => 'Jenis Kelamin tidak boleh kosong!',
+                'tgl_lahir.required' => 'Tanggal Lahir tidak boleh kosong!',
+                'alamat.required' => 'Alamat tidak boleh kosong!'
             ]
-            );
-
-
-
+        );
 
         $data = [
-            'npm'               => $request -> npm,
-            'nama_mahasiswa'    => $request -> nama_mahasiswa,
-            'jk'                => $request -> jk,
-            'tgl_lahir'         => $request -> tgl_lahir,
-            'alamat'            => $request -> alamat
-            
+            'npm' => $request->npm,
+            'nama_mahasiswa' => $request->nama_mahasiswa,
+            'jk' => $request->jk,
+            'tgl_lahir' => $request->tgl_lahir,
+            'alamat' => $request->alamat
         ];
-        
+        mahasiswaModel::create($data);
+        return redirect('/mahasiswa')->with('success', 'Data Berhasil ditambahkan!');
     }
+
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        //
+        //Halaman Detail
     }
 
     /**
@@ -81,7 +84,7 @@ class mahasiswacontroller extends Controller
      */
     public function edit(string $id)
     {
-        //
+        //Halaman Edit mahasiswa
     }
 
     /**
@@ -89,7 +92,7 @@ class mahasiswacontroller extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //Simpan edit mahasiswa
     }
 
     /**
@@ -97,6 +100,6 @@ class mahasiswacontroller extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //Hapus mahasiswa
     }
 }
