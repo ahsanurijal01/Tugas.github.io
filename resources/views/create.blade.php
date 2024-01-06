@@ -59,11 +59,11 @@
           <div class="row">
             <div class="col-sm-4">
               <label for="">NPM</label>
-              <input type="number" name="npm" class="form-control" placeholder="Input NPM" value="{{ $data->npm }}">
+              <input type="number" name="npm" class="form-control" placeholder="Input NPM" value="{{ Session::get('npm') }}">
             </div>
             <div class="col-sm-4">
               <label for="">Nama Mahasiswa</label>
-              <input type="text" name="nama_mahasiswa" class="form-control" placeholder="Input Nama Mahasiswa" value="{{ $data->nama_mahasiswa }}">
+              <input type="text" name="nama_mahasiswa" class="form-control" placeholder="Input Nama Mahasiswa" value="{{ Session::get('nama_mahasiswa') }}">
             </div>
             <div class="col-sm-4">
               <label for="">Jenis Kelamin</label>
