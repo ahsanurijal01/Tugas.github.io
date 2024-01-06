@@ -36,7 +36,7 @@
   </nav>
 
   <div class="container">
-    <h1>Halaman Tambah Mahasiswa</h1>
+    <h1>Halaman Edit Mahasiswa</h1>
 
     <div class="row">
       <div class="col-sm-12">
@@ -54,8 +54,9 @@
             </div>
         @endif
 
-        <form action="mahasiswa/" method="POST">
+        <form action="/mahasiswa/{{ $data->id}}" method="POST">
           @csrf
+          @method("PUT")
           <div class="row">
             <div class="col-sm-4">
               <label for="">NPM</label>
@@ -78,11 +79,11 @@
               <div class="row">
                 <div class="col-sm-5">
                   <label for="">Tanggal Lahir</label>
-                  <input type="date" name="tgl_lahir" class="form-control" value="{{ Session::get('tgl_lahir') }}">
+                  <input type="date" name="tgl_lahir" class="form-control" value="{{ $data->tgl_lahir }}">
                 </div>
                 <div class="col-sm-7">
                   <label for="">Alamat</label>
-                  <input type="text" name="alamat" id="" class="form-control" placeholder="Input alamat" value="{{ Session::get('alamat') }}">
+                  <input type="text" name="alamat" id="" class="form-control" placeholder="Input alamat" value="{{ $data->alamat }}">
                 </div>
               </div>
             </div>

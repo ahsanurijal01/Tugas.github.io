@@ -69,6 +69,7 @@
               <th>Jenis Kelamin</th>
               <th>Tanggal Lahir</th>
               <th>Alamat</th>
+              <th>Opsi</th>
             </tr>
           </thead>
           <tbody>
@@ -80,10 +81,14 @@
               <td>{{ $m->jk }}</td>
               <td>{{ $m->tgl_lahir }}</td>
               <td>{{ $m->alamat }}</td>
+              <td>
+                <a href="mahasiswa/{{$m->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+              </td>
             </tr>
           @endforeach
           </tbody>
         </table>
+        {{ $mahasiswa->links()}}
       </div>
     </div>
 

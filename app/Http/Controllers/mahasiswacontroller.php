@@ -15,7 +15,8 @@ class mahasiswaController extends Controller
     public function index()
     {
         //Halaman Home mahasiswa
-        $mahasiswa = mahasiswaModel::orderBy('npm', 'asc')->get();
+        $jumlah_halaman = 2;
+        $mahasiswa = mahasiswaModel::orderBy('npm', 'asc')->paginate(3);
         $no = 1;
         return view('index', compact('mahasiswa', 'no'));
     }
@@ -85,6 +86,36 @@ class mahasiswaController extends Controller
     public function edit(string $id)
     {
         //Halaman Edit mahasiswa
+        $data = mahasiswaModel::where('id',$id)->first();
+        return view('edit',compact('data'));
+
+        $request->validate(
+            [
+                'npm' => 'required|numeric|unique:mahasiswa,npm',
+                'nama_mahasiswa' => 'required',
+                'jk' => 'required',
+                'tgl_lahir' => 'required',
+                'alamat' => 'required'
+            ],
+            [
+                'npm.required' => 'NPM tidak boleh kosong!',
+                'npm.numeric' => 'NPM harus diisi dalam bentuk angka',
+                'npm.unique' => 'NPM sudah ada sebelumnya',
+                'nama_mahasiswa.required' => 'Nama Mahasiswa tidak boleh kosong!',
+                'jk.required' => 'Jenis Kelamin tidak boleh kosong!',
+                'tgl_lahir.required' => 'Tanggal Lahir tidak boleh kosong!',
+                'alamat.required' => 'Alamat tidak boleh kosong!'
+            ]
+        );
+        $data = [
+            'npm'               => $request->npm,
+            'nama_mahasiswa'    => $request->nama_mahasiswa,
+            'jk'                => $request->jk,
+            'tgl_lahir'         => $request->tgl_lahir,
+            'alamat'            => $request->alamat
+        ];
+        mahasiswaModel::where('id', $id);
+        return redirect('/mahasiswa')->with('success', 'Data Berhasil diedit!');
     }
 
     /**
